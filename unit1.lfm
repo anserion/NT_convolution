@@ -1,0 +1,996 @@
+object Form1: TForm1
+  Left = 369
+  Height = 635
+  Top = 80
+  Width = 1015
+  AutoSize = True
+  BorderStyle = bsDialog
+  BorderWidth = 5
+  Caption = 'Сверточная нейронная сеть (Нейрокомпьютерные технологии, Ионисян А.С.)'
+  ClientHeight = 635
+  ClientWidth = 1015
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '2.0.10.0'
+  object Edit_student_name: TEdit
+    Left = 56
+    Height = 32
+    Top = 8
+    Width = 396
+    Font.Height = -17
+    Font.Name = 'Sans'
+    ParentFont = False
+    TabOrder = 0
+    Text = 'Нейрокомпьютерная технология'
+  end
+  object Label_student_name: TLabel
+    Left = 5
+    Height = 19
+    Top = 14
+    Width = 41
+    Caption = 'ФИО'
+    Font.Height = -17
+    Font.Name = 'Sans'
+    ParentColor = False
+    ParentFont = False
+  end
+  object BTN_orig_create: TButton
+    Left = 5
+    Height = 24
+    Top = 600
+    Width = 160
+    Caption = 'Создать эталоны'
+    Font.Height = -17
+    Font.Name = 'Sans'
+    OnClick = BTN_orig_createClick
+    ParentFont = False
+    TabOrder = 1
+  end
+  object PB_receptors: TPaintBox
+    Left = 5
+    Height = 384
+    Top = 64
+    Width = 451
+    ParentFont = False
+    OnMouseDown = PB_receptorsMouseDown
+    OnPaint = PB_receptorsPaint
+  end
+  object Label2: TLabel
+    Left = 5
+    Height = 14
+    Top = 48
+    Width = 145
+    Caption = 'Рецепторное поле (РП)'
+    ParentColor = False
+    ParentFont = False
+  end
+  object PB_orig1: TPaintBox
+    Tag = 1
+    Left = 5
+    Height = 64
+    Top = 466
+    Width = 65
+    ParentFont = False
+    OnMouseDown = PB_orig_MouseDown
+    OnPaint = PB_orig_Paint
+  end
+  object BTN_orig1_to_S: TButton
+    Tag = 1
+    Left = 5
+    Height = 32
+    Top = 530
+    Width = 64
+    Caption = 'в РП'
+    OnClick = BTN_orig_to_S_Click
+    ParentFont = False
+    TabOrder = 2
+  end
+  object BTN_orig1_learn: TButton
+    Tag = 1
+    Left = 5
+    Height = 32
+    Top = 562
+    Width = 64
+    Caption = 'Learn'
+    OnClick = BTN_orig_learnClick
+    ParentFont = False
+    TabOrder = 3
+  end
+  object PB_orig2: TPaintBox
+    Tag = 2
+    Left = 80
+    Height = 64
+    Top = 466
+    Width = 65
+    ParentFont = False
+    OnMouseDown = PB_orig_MouseDown
+    OnPaint = PB_orig_Paint
+  end
+  object BTN_orig2_to_S: TButton
+    Tag = 2
+    Left = 80
+    Height = 32
+    Top = 530
+    Width = 64
+    Caption = 'в РП'
+    OnClick = BTN_orig_to_S_Click
+    ParentFont = False
+    TabOrder = 4
+  end
+  object BTN_orig2_learn: TButton
+    Tag = 2
+    Left = 80
+    Height = 32
+    Top = 562
+    Width = 64
+    Caption = 'Learn'
+    OnClick = BTN_orig_learnClick
+    ParentFont = False
+    TabOrder = 5
+  end
+  object PB_orig3: TPaintBox
+    Tag = 3
+    Left = 152
+    Height = 64
+    Top = 466
+    Width = 65
+    ParentFont = False
+    OnMouseDown = PB_orig_MouseDown
+    OnPaint = PB_orig_Paint
+  end
+  object BTN_orig3_to_S: TButton
+    Tag = 3
+    Left = 152
+    Height = 32
+    Top = 530
+    Width = 64
+    Caption = 'в РП'
+    OnClick = BTN_orig_to_S_Click
+    ParentFont = False
+    TabOrder = 6
+  end
+  object BTN_orig3_learn: TButton
+    Tag = 3
+    Left = 152
+    Height = 32
+    Top = 562
+    Width = 64
+    Caption = 'Learn'
+    OnClick = BTN_orig_learnClick
+    ParentFont = False
+    TabOrder = 7
+  end
+  object PB_orig4: TPaintBox
+    Tag = 4
+    Left = 224
+    Height = 64
+    Top = 466
+    Width = 65
+    ParentFont = False
+    OnMouseDown = PB_orig_MouseDown
+    OnPaint = PB_orig_Paint
+  end
+  object BTN_orig4_to_S: TButton
+    Tag = 4
+    Left = 224
+    Height = 32
+    Top = 530
+    Width = 64
+    Caption = 'в РП'
+    OnClick = BTN_orig_to_S_Click
+    ParentFont = False
+    TabOrder = 8
+  end
+  object BTN_orig4_learn: TButton
+    Tag = 4
+    Left = 224
+    Height = 32
+    Top = 562
+    Width = 64
+    Caption = 'Learn'
+    OnClick = BTN_orig_learnClick
+    ParentFont = False
+    TabOrder = 9
+  end
+  object Label_orig1: TLabel
+    Left = 5
+    Height = 14
+    Top = 448
+    Width = 56
+    Caption = 'Эталон 1'
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label_orig2: TLabel
+    Left = 80
+    Height = 14
+    Top = 448
+    Width = 56
+    Caption = 'Эталон 2'
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label_orig3: TLabel
+    Left = 152
+    Height = 14
+    Top = 448
+    Width = 56
+    Caption = 'Эталон 3'
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label_orig4: TLabel
+    Left = 224
+    Height = 14
+    Top = 448
+    Width = 56
+    Caption = 'Эталон 4'
+    ParentColor = False
+    ParentFont = False
+  end
+  object PB_Layer3: TPaintBox
+    Left = 296
+    Height = 160
+    Top = 466
+    Width = 160
+    ParentFont = False
+    OnPaint = PB_L3_Paint
+  end
+  object Label_Layer3: TLabel
+    Left = 296
+    Height = 14
+    Top = 448
+    Width = 161
+    Caption = 'Выходы последнего слоя'
+    ParentColor = False
+    ParentFont = False
+  end
+  object BTN_reset: TButton
+    Left = 368
+    Height = 20
+    Top = 42
+    Width = 88
+    Caption = 'Сброс сети'
+    OnClick = BTN_resetClick
+    TabOrder = 10
+  end
+  object BTN_1000: TButton
+    Left = 168
+    Height = 24
+    Top = 600
+    Width = 121
+    Caption = 'Обучить все'
+    Font.Height = -17
+    Font.Name = 'Sans'
+    OnClick = BTN_1000Click
+    ParentFont = False
+    TabOrder = 11
+  end
+  object Panel_L1_kern1: TPanel
+    Left = 464
+    Height = 150
+    Top = 8
+    Width = 342
+    ClientHeight = 150
+    ClientWidth = 342
+    TabOrder = 12
+    object PB_L1_kern1: TPaintBox
+      Tag = 1
+      Left = 3
+      Height = 65
+      Top = 16
+      Width = 65
+      ParentFont = False
+      OnMouseDown = PB_L1_kern_MouseDown
+      OnPaint = PB_L1_kern_Paint
+    end
+    object Label_L1_kern1: TLabel
+      Left = 5
+      Height = 14
+      Top = 0
+      Width = 42
+      Caption = 'ядро 1'
+      ParentColor = False
+    end
+    object PB_L1_conv1: TPaintBox
+      Tag = 1
+      Left = 72
+      Height = 130
+      Top = 16
+      Width = 130
+      OnPaint = PB_L1_conv_Paint
+    end
+    object Label_L1_conv1: TLabel
+      Left = 72
+      Height = 14
+      Top = 0
+      Width = 98
+      Caption = 'карта свертки 1'
+      ParentColor = False
+    end
+    object Label_L1_subdiscr1: TLabel
+      Left = 208
+      Height = 14
+      Top = 0
+      Width = 116
+      Caption = 'субдискретизация'
+      ParentColor = False
+    end
+    object PB_L1_subdiscr1: TPaintBox
+      Tag = 1
+      Left = 208
+      Height = 130
+      Top = 16
+      Width = 130
+      OnPaint = PB_L1_subdiscr_Paint
+    end
+  end
+  object Panel_L1_kern2: TPanel
+    Left = 464
+    Height = 150
+    Top = 164
+    Width = 342
+    ClientHeight = 150
+    ClientWidth = 342
+    TabOrder = 13
+    object PB_L1_kern2: TPaintBox
+      Tag = 2
+      Left = 3
+      Height = 65
+      Top = 16
+      Width = 65
+      ParentFont = False
+      OnMouseDown = PB_L1_kern_MouseDown
+      OnPaint = PB_L1_kern_Paint
+    end
+    object Label_L1_kern2: TLabel
+      Left = 5
+      Height = 14
+      Top = 0
+      Width = 42
+      Caption = 'ядро 2'
+      ParentColor = False
+    end
+    object PB_L1_conv2: TPaintBox
+      Tag = 2
+      Left = 72
+      Height = 130
+      Top = 16
+      Width = 130
+      OnPaint = PB_L1_conv_Paint
+    end
+    object Label_L1_conv2: TLabel
+      Left = 72
+      Height = 14
+      Top = 0
+      Width = 98
+      Caption = 'карта свертки 2'
+      ParentColor = False
+    end
+    object Label_L1_subdiscr2: TLabel
+      Left = 208
+      Height = 14
+      Top = 0
+      Width = 116
+      Caption = 'субдискретизация'
+      ParentColor = False
+    end
+    object PB_L1_subdiscr2: TPaintBox
+      Tag = 2
+      Left = 208
+      Height = 130
+      Top = 16
+      Width = 130
+      OnPaint = PB_L1_subdiscr_Paint
+    end
+  end
+  object Panel_L1_kern3: TPanel
+    Left = 464
+    Height = 150
+    Top = 320
+    Width = 342
+    ClientHeight = 150
+    ClientWidth = 342
+    TabOrder = 14
+    object PB_L1_kern3: TPaintBox
+      Tag = 3
+      Left = 3
+      Height = 65
+      Top = 16
+      Width = 65
+      ParentFont = False
+      OnMouseDown = PB_L1_kern_MouseDown
+      OnPaint = PB_L1_kern_Paint
+    end
+    object Label_L1_kern3: TLabel
+      Left = 5
+      Height = 14
+      Top = 0
+      Width = 42
+      Caption = 'ядро 3'
+      ParentColor = False
+    end
+    object PB_L1_conv3: TPaintBox
+      Tag = 3
+      Left = 72
+      Height = 130
+      Top = 16
+      Width = 130
+      OnPaint = PB_L1_conv_Paint
+    end
+    object Label_L1_conv3: TLabel
+      Left = 72
+      Height = 14
+      Top = 0
+      Width = 98
+      Caption = 'карта свертки 3'
+      ParentColor = False
+    end
+    object Label_L1_subdiscr3: TLabel
+      Left = 208
+      Height = 14
+      Top = 0
+      Width = 116
+      Caption = 'субдискретизация'
+      ParentColor = False
+    end
+    object PB_L1_subdiscr3: TPaintBox
+      Tag = 3
+      Left = 208
+      Height = 130
+      Top = 16
+      Width = 130
+      OnPaint = PB_L1_subdiscr_Paint
+    end
+  end
+  object Panel_L1_kern4: TPanel
+    Left = 464
+    Height = 150
+    Top = 476
+    Width = 342
+    ClientHeight = 150
+    ClientWidth = 342
+    TabOrder = 15
+    object PB_L1_kern4: TPaintBox
+      Tag = 4
+      Left = 3
+      Height = 65
+      Top = 16
+      Width = 65
+      ParentFont = False
+      OnMouseDown = PB_L1_kern_MouseDown
+      OnPaint = PB_L1_kern_Paint
+    end
+    object Label_L1_kern4: TLabel
+      Left = 5
+      Height = 14
+      Top = 0
+      Width = 42
+      Caption = 'ядро 4'
+      ParentColor = False
+    end
+    object PB_L1_conv4: TPaintBox
+      Tag = 4
+      Left = 72
+      Height = 130
+      Top = 16
+      Width = 130
+      OnPaint = PB_L1_conv_Paint
+    end
+    object Label_L1_conv4: TLabel
+      Left = 72
+      Height = 14
+      Top = 0
+      Width = 98
+      Caption = 'карта свертки 4'
+      ParentColor = False
+    end
+    object Label_L1_subdiscr4: TLabel
+      Left = 208
+      Height = 14
+      Top = 0
+      Width = 116
+      Caption = 'субдискретизация'
+      ParentColor = False
+    end
+    object PB_L1_subdiscr4: TPaintBox
+      Tag = 4
+      Left = 208
+      Height = 130
+      Top = 16
+      Width = 130
+      OnPaint = PB_L1_subdiscr_Paint
+    end
+  end
+  object Panel_L2_kern1: TPanel
+    Left = 810
+    Height = 75
+    Top = 8
+    Width = 200
+    ClientHeight = 75
+    ClientWidth = 200
+    TabOrder = 16
+    object PB_L2_kern1: TPaintBox
+      Tag = 1
+      Left = 3
+      Height = 55
+      Top = 16
+      Width = 60
+      ParentFont = False
+      OnMouseDown = PB_L2_kern_MouseDown
+      OnPaint = PB_L2_kern_Paint
+    end
+    object Label_L2_kern1: TLabel
+      Left = 5
+      Height = 14
+      Top = 0
+      Width = 42
+      Caption = 'ядро 1'
+      ParentColor = False
+    end
+    object PB_L2_conv1: TPaintBox
+      Tag = 1
+      Left = 72
+      Height = 55
+      Top = 16
+      Width = 60
+      OnPaint = PB_L2_conv_Paint
+    end
+    object Label_L2_conv1: TLabel
+      Left = 72
+      Height = 14
+      Top = 0
+      Width = 48
+      Caption = 'свертка'
+      ParentColor = False
+    end
+    object Label_L2_subdiscr1: TLabel
+      Left = 136
+      Height = 14
+      Top = 0
+      Width = 58
+      Caption = 'субдискр'
+      ParentColor = False
+    end
+    object PB_L2_subdiscr1: TPaintBox
+      Tag = 1
+      Left = 136
+      Height = 55
+      Top = 16
+      Width = 60
+      OnPaint = PB_L2_subdiscr_Paint
+    end
+  end
+  object Panel_L2_kern2: TPanel
+    Left = 810
+    Height = 75
+    Top = 83
+    Width = 200
+    ClientHeight = 75
+    ClientWidth = 200
+    TabOrder = 17
+    object PB_L2_kern2: TPaintBox
+      Tag = 2
+      Left = 3
+      Height = 55
+      Top = 16
+      Width = 60
+      ParentFont = False
+      OnMouseDown = PB_L2_kern_MouseDown
+      OnPaint = PB_L2_kern_Paint
+    end
+    object Label_L2_kern2: TLabel
+      Left = 5
+      Height = 14
+      Top = 0
+      Width = 42
+      Caption = 'ядро 2'
+      ParentColor = False
+    end
+    object PB_L2_conv2: TPaintBox
+      Tag = 2
+      Left = 72
+      Height = 55
+      Top = 16
+      Width = 60
+      OnPaint = PB_L2_conv_Paint
+    end
+    object Label_L2_conv2: TLabel
+      Left = 72
+      Height = 14
+      Top = 0
+      Width = 48
+      Caption = 'свертка'
+      ParentColor = False
+    end
+    object Label_L2_subdiscr2: TLabel
+      Left = 136
+      Height = 14
+      Top = 0
+      Width = 58
+      Caption = 'субдискр'
+      ParentColor = False
+    end
+    object PB_L2_subdiscr2: TPaintBox
+      Tag = 2
+      Left = 136
+      Height = 55
+      Top = 16
+      Width = 60
+      OnPaint = PB_L2_subdiscr_Paint
+    end
+  end
+  object Panel_L2_kern3: TPanel
+    Left = 810
+    Height = 75
+    Top = 164
+    Width = 200
+    ClientHeight = 75
+    ClientWidth = 200
+    TabOrder = 18
+    object PB_L2_kern3: TPaintBox
+      Tag = 3
+      Left = 3
+      Height = 55
+      Top = 16
+      Width = 60
+      ParentFont = False
+      OnMouseDown = PB_L2_kern_MouseDown
+      OnPaint = PB_L2_kern_Paint
+    end
+    object Label_L2_kern3: TLabel
+      Left = 5
+      Height = 14
+      Top = 0
+      Width = 42
+      Caption = 'ядро 1'
+      ParentColor = False
+    end
+    object PB_L2_conv3: TPaintBox
+      Tag = 3
+      Left = 72
+      Height = 55
+      Top = 16
+      Width = 60
+      OnPaint = PB_L2_conv_Paint
+    end
+    object Label_L2_conv3: TLabel
+      Left = 72
+      Height = 14
+      Top = 0
+      Width = 48
+      Caption = 'свертка'
+      ParentColor = False
+    end
+    object Label_L2_subdiscr3: TLabel
+      Left = 136
+      Height = 14
+      Top = 0
+      Width = 58
+      Caption = 'субдискр'
+      ParentColor = False
+    end
+    object PB_L2_subdiscr3: TPaintBox
+      Tag = 3
+      Left = 136
+      Height = 55
+      Top = 16
+      Width = 60
+      OnPaint = PB_L2_subdiscr_Paint
+    end
+  end
+  object Panel_L2_kern4: TPanel
+    Left = 810
+    Height = 75
+    Top = 239
+    Width = 200
+    ClientHeight = 75
+    ClientWidth = 200
+    TabOrder = 19
+    object PB_L2_kern4: TPaintBox
+      Tag = 4
+      Left = 3
+      Height = 55
+      Top = 16
+      Width = 60
+      ParentFont = False
+      OnMouseDown = PB_L2_kern_MouseDown
+      OnPaint = PB_L2_kern_Paint
+    end
+    object Label_L2_kern4: TLabel
+      Left = 5
+      Height = 14
+      Top = 0
+      Width = 42
+      Caption = 'ядро 2'
+      ParentColor = False
+    end
+    object PB_L2_conv4: TPaintBox
+      Tag = 4
+      Left = 72
+      Height = 55
+      Top = 16
+      Width = 60
+      OnPaint = PB_L2_conv_Paint
+    end
+    object Label_L2_conv4: TLabel
+      Left = 72
+      Height = 14
+      Top = 0
+      Width = 48
+      Caption = 'свертка'
+      ParentColor = False
+    end
+    object Label_L2_subdiscr4: TLabel
+      Left = 136
+      Height = 14
+      Top = 0
+      Width = 58
+      Caption = 'субдискр'
+      ParentColor = False
+    end
+    object PB_L2_subdiscr4: TPaintBox
+      Tag = 4
+      Left = 136
+      Height = 55
+      Top = 16
+      Width = 60
+      OnPaint = PB_L2_subdiscr_Paint
+    end
+  end
+  object Panel_L2_kern5: TPanel
+    Left = 810
+    Height = 75
+    Top = 320
+    Width = 200
+    ClientHeight = 75
+    ClientWidth = 200
+    TabOrder = 20
+    object PB_L2_kern5: TPaintBox
+      Tag = 5
+      Left = 3
+      Height = 55
+      Top = 16
+      Width = 60
+      ParentFont = False
+      OnMouseDown = PB_L2_kern_MouseDown
+      OnPaint = PB_L2_kern_Paint
+    end
+    object Label_L2_kern5: TLabel
+      Left = 5
+      Height = 14
+      Top = 0
+      Width = 42
+      Caption = 'ядро 1'
+      ParentColor = False
+    end
+    object PB_L2_conv5: TPaintBox
+      Tag = 5
+      Left = 72
+      Height = 55
+      Top = 16
+      Width = 60
+      OnPaint = PB_L2_conv_Paint
+    end
+    object Label_L2_conv5: TLabel
+      Left = 72
+      Height = 14
+      Top = 0
+      Width = 48
+      Caption = 'свертка'
+      ParentColor = False
+    end
+    object Label_L2_subdiscr5: TLabel
+      Left = 136
+      Height = 14
+      Top = 0
+      Width = 58
+      Caption = 'субдискр'
+      ParentColor = False
+    end
+    object PB_L2_subdiscr5: TPaintBox
+      Tag = 5
+      Left = 136
+      Height = 55
+      Top = 16
+      Width = 60
+      OnPaint = PB_L2_subdiscr_Paint
+    end
+  end
+  object Panel_L2_kern6: TPanel
+    Left = 810
+    Height = 75
+    Top = 395
+    Width = 200
+    ClientHeight = 75
+    ClientWidth = 200
+    TabOrder = 21
+    object PB_L2_kern6: TPaintBox
+      Tag = 6
+      Left = 3
+      Height = 55
+      Top = 16
+      Width = 60
+      ParentFont = False
+      OnMouseDown = PB_L2_kern_MouseDown
+      OnPaint = PB_L2_kern_Paint
+    end
+    object Label_L2_kern6: TLabel
+      Left = 5
+      Height = 14
+      Top = 0
+      Width = 42
+      Caption = 'ядро 2'
+      ParentColor = False
+    end
+    object PB_L2_conv6: TPaintBox
+      Tag = 6
+      Left = 72
+      Height = 55
+      Top = 16
+      Width = 60
+      OnPaint = PB_L2_conv_Paint
+    end
+    object Label_L2_conv6: TLabel
+      Left = 72
+      Height = 14
+      Top = 0
+      Width = 48
+      Caption = 'свертка'
+      ParentColor = False
+    end
+    object Label_L2_subdiscr6: TLabel
+      Left = 136
+      Height = 14
+      Top = 0
+      Width = 58
+      Caption = 'субдискр'
+      ParentColor = False
+    end
+    object PB_L2_subdiscr6: TPaintBox
+      Tag = 6
+      Left = 136
+      Height = 55
+      Top = 16
+      Width = 60
+      OnPaint = PB_L2_subdiscr_Paint
+    end
+  end
+  object Panel_L2_kern7: TPanel
+    Left = 810
+    Height = 75
+    Top = 476
+    Width = 200
+    ClientHeight = 75
+    ClientWidth = 200
+    TabOrder = 22
+    object PB_L2_kern7: TPaintBox
+      Tag = 7
+      Left = 3
+      Height = 55
+      Top = 16
+      Width = 60
+      ParentFont = False
+      OnMouseDown = PB_L2_kern_MouseDown
+      OnPaint = PB_L2_kern_Paint
+    end
+    object Label_L2_kern7: TLabel
+      Left = 5
+      Height = 14
+      Top = 0
+      Width = 42
+      Caption = 'ядро 1'
+      ParentColor = False
+    end
+    object PB_L2_conv7: TPaintBox
+      Tag = 7
+      Left = 72
+      Height = 55
+      Top = 16
+      Width = 60
+      OnPaint = PB_L2_conv_Paint
+    end
+    object Label_L2_conv7: TLabel
+      Left = 72
+      Height = 14
+      Top = 0
+      Width = 48
+      Caption = 'свертка'
+      ParentColor = False
+    end
+    object Label_L2_subdiscr7: TLabel
+      Left = 136
+      Height = 14
+      Top = 0
+      Width = 58
+      Caption = 'субдискр'
+      ParentColor = False
+    end
+    object PB_L2_subdiscr7: TPaintBox
+      Tag = 7
+      Left = 136
+      Height = 55
+      Top = 16
+      Width = 60
+      OnPaint = PB_L2_subdiscr_Paint
+    end
+  end
+  object Panel_L2_kern8: TPanel
+    Left = 810
+    Height = 75
+    Top = 551
+    Width = 200
+    ClientHeight = 75
+    ClientWidth = 200
+    TabOrder = 23
+    object PB_L2_kern8: TPaintBox
+      Tag = 8
+      Left = 3
+      Height = 55
+      Top = 16
+      Width = 60
+      ParentFont = False
+      OnMouseDown = PB_L2_kern_MouseDown
+      OnPaint = PB_L2_kern_Paint
+    end
+    object Label_L2_kern8: TLabel
+      Left = 5
+      Height = 14
+      Top = 0
+      Width = 42
+      Caption = 'ядро 2'
+      ParentColor = False
+    end
+    object PB_L2_conv8: TPaintBox
+      Tag = 8
+      Left = 72
+      Height = 55
+      Top = 16
+      Width = 60
+      OnPaint = PB_L2_conv_Paint
+    end
+    object Label_L2_conv8: TLabel
+      Left = 72
+      Height = 14
+      Top = 0
+      Width = 48
+      Caption = 'свертка'
+      ParentColor = False
+    end
+    object Label_L2_subdiscr8: TLabel
+      Left = 136
+      Height = 14
+      Top = 0
+      Width = 58
+      Caption = 'субдискр'
+      ParentColor = False
+    end
+    object PB_L2_subdiscr8: TPaintBox
+      Tag = 8
+      Left = 136
+      Height = 55
+      Top = 16
+      Width = 60
+      ParentShowHint = False
+      OnPaint = PB_L2_subdiscr_Paint
+    end
+  end
+  object BTN_reset_S: TButton
+    Left = 160
+    Height = 20
+    Top = 42
+    Width = 88
+    Caption = 'Очистить  РП'
+    OnClick = BTN_reset_SClick
+    TabOrder = 24
+  end
+  object BTN_reset_orig: TButton
+    Left = 248
+    Height = 20
+    Top = 42
+    Width = 120
+    Caption = 'Очистить эталоны'
+    OnClick = BTN_reset_origClick
+    TabOrder = 25
+  end
+end
